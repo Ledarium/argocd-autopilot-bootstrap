@@ -92,4 +92,5 @@ spec:
           selfHeal: true
         syncOptions:
           - ServerSideApply=true
+          - Replace=true
 status: {}
