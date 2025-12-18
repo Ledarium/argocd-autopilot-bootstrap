@@ -4,7 +4,7 @@
   "destNamespace": "cnpg-system",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "cnpg-operator",
-  "srcRepoURL": "./testing.git",
+  "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap.git",
   "srcTargetRevision": "",
   "labels": null,
   "annotations": {

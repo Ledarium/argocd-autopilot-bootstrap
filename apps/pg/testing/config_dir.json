@@ -4,7 +4,7 @@
   "destNamespace": "databases",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": ".",
-  "srcRepoURL": "./pg-cluster.git",
+  "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap.git",
   "srcTargetRevision": "",
   "labels": null,
   "annotations": {
