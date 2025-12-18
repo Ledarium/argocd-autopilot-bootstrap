@@ -1,0 +1,15 @@
+{
+  "appName": "cnpg-operator",
+  "userGivenName": "cnpg-operator",
+  "destNamespace": "cnpg-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "cnpg-operator",
+  "srcRepoURL": "./testing.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": {
+    "argocd.argoproj.io/sync-wave": "0"
+  },
+  "exclude": "",
+  "include": ""
+}
