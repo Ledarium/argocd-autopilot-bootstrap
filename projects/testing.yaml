@@ -90,4 +90,7 @@ spec:
           allowEmpty: true
           prune: true
           selfHeal: true
+            syncPolicy:
+          syncOptions:
+            - ServerSideApply=true
 status: {}
