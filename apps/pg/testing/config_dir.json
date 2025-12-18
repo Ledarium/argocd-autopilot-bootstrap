@@ -1,0 +1,15 @@
+{
+  "appName": "pg",
+  "userGivenName": "pg",
+  "destNamespace": "databases",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": ".",
+  "srcRepoURL": "./pg-cluster.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": {
+    "argocd.argoproj.io/sync-wave": "1"
+  },
+  "exclude": "",
+  "include": ""
+}
