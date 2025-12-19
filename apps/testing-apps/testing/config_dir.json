@@ -1,0 +1,13 @@
+{
+  "appName": "testing-apps",
+  "userGivenName": "testing-apps",
+  "destNamespace": "argocd",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "testing/apps",
+  "srcRepoURL": "./environments.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
