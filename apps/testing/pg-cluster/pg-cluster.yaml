@@ -16,8 +16,5 @@ spec:
       - name: miniflux_user
         ensure: present
         login: true
-        createrole: true
-        createdb: true
         passwordSecret:
           name: pg-miniflux-user
-
