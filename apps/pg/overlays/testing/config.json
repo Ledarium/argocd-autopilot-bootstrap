@@ -1,0 +1,13 @@
+{
+  "appName": "pg",
+  "userGivenName": "pg",
+  "destNamespace": "testing",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/pg/overlays/testing",
+  "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": {
+    "argocd.argoproj.io/sync-wave": "1"
+  }
+}
