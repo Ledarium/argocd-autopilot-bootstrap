@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg-barman-plugin
+  namespace: argocd
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/Ledarium/argocd-autopilot-bootstrap
+    targetRevision: HEAD
+    path: environments/testing/pg-cluster/barman-plugin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg-system
+  syncPolicy:
+    automated: { prune: true, selfHeal: true }
+    syncOptions: ["CreateNamespace=true"]
+
