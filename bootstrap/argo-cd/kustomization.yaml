@@ -40,27 +40,17 @@ patches:
                   secretName: sops-age
             initContainers:
               - name: install-ksops
-                image: alpine:3.20
+                image: viaductoss/ksops:v4.4.0
                 command: ["/bin/sh", "-c"]
                 args:
                   - |
-                    set -eux
-                    apk add --no-cache ca-certificates curl tar
-                    case "$(uname -m)" in
-                      x86_64|amd64) ARCH="x86_64" ;;
-                      aarch64|arm64) ARCH="arm64" ;;
-                      *) echo "unsupported arch: $(uname -m)"; exit 1 ;;
-                    esac
-                    VERSION="v4.4.0"
-                    VERSION_RAW="${VERSION#v}"
-                    URL="https://github.com/viaduct-ai/kustomize-sops/releases/download/${VERSION}/ksops_${VERSION_RAW}_Linux_${ARCH}.tar.gz"
-                    mkdir -p /plugin
-                    curl -fsSL -o /tmp/ksops.tgz "${URL}"
-                    tar -C /plugin -xzf /tmp/ksops.tgz ksops
-                    chmod +x /plugin/ksops
+                    echo "Installing KSOPS...";
+                    mv ksops /custom-tools/;
+                    mv kustomize /custom-tools/;
+                    echo "Done.";
                 volumeMounts:
                   - name: custom-tools
-                    mountPath: /plugin
+                    mountPath: /custom-tools
             containers:
               - name: argocd-repo-server
                 env:
@@ -69,11 +59,12 @@ patches:
                   - name: SOPS_AGE_KEY_FILE
                     value: /home/argocd/.config/sops/age/keys.txt
                 volumeMounts:
-                  # KSOPS plugin must live in the kustomize plugin dir:
                   - name: custom-tools
-                    mountPath: /home/argocd/.config/kustomize/plugin/viaduct.ai/v1/ksops
-                  # age private key:
+                    mountPath: /usr/local/bin/ksops
+                    subPath: ksops
+                  - name: custom-tools
+                    mountPath: /usr/local/bin/kustomize
+                    subPath: kustomize
                   - name: sops-age
                     mountPath: /home/argocd/.config/sops/age
                     readOnly: true
-
