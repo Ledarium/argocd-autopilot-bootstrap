@@ -9,7 +9,5 @@
   "labels": null,
   "annotations": {
     "argocd.argoproj.io/sync-wave": "1"
-  },
-  "exclude": "",
-  "include": ""
+  }
 }
