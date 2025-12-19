@@ -1,9 +1,9 @@
 {
-  "appName": "testing-apps",
-  "userGivenName": "testing-apps",
+  "appName": "helm-apps",
+  "userGivenName": "helm-apps",
   "destNamespace": "argocd",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "testing/apps",
+  "srcPath": "testing/helm-apps",
   "srcRepoURL": "./environments.git",
   "srcTargetRevision": "",
   "labels": null,
