@@ -3,7 +3,7 @@
   "userGivenName": "helm-apps",
   "destNamespace": "argocd",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "testing/helm-apps",
+  "srcPath": "environments/testing/helm-apps",
   "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap",
   "srcTargetRevision": "",
   "labels": null,
