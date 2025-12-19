@@ -1,0 +1,13 @@
+{
+  "appName": "pg-cluster",
+  "userGivenName": "pg-cluster",
+  "destNamespace": "testing",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "testing/pg-cluster",
+  "srcRepoURL": "./environments.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
