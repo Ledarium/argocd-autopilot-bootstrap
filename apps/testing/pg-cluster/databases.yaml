@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Database
 metadata:
   name: pg-miniflux
-  namespace: databases
+  namespace: testing
 spec:
   name: miniflux
   owner: miniflux_user
