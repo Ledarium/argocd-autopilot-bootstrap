@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cnpg-barman-plugin
-  namespace: argocd
+  namespace: cnpg-system
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  project: platform
+  project: testing
   source:
     repoURL: https://github.com/Ledarium/argocd-autopilot-bootstrap
     targetRevision: HEAD
