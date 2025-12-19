@@ -19,4 +19,24 @@ setup https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
 
 separate namespaces
 
-Sealed secrets guide
+## Sealing secrets
+
+Download cluster private key
+```
+kubeseal --fetch-cert \
+  --controller-name sealed-secrets \
+  --controller-namespace sealed-secrets \
+  > sealed-secrets.pub.pem
+```
+
+Create environments/testing/secrets/pg-miniflux-user.yaml DO NOT COMMIT
+
+```
+kubeseal \
+  --cert sealed-secrets.pub.pem \
+  --format yaml \
+  --namespace testing \
+  --name pg-miniflux-user \ < environments/testing/secrets/pg-miniflux-user.yaml > environments/testing/secrets/pg-miniflux-user.sealed.yaml
+```
+
+Commit .sealed.yaml and remove the other.
