@@ -3,8 +3,6 @@ kind: Cluster
 metadata:
   name: pg
   namespace: testing
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
 spec:
   instances: 1
   storage:
