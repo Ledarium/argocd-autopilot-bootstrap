@@ -3,7 +3,7 @@
   "userGivenName": "pg",
   "destNamespace": "testing",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "apps/testing/pg-cluster",
+  "srcPath": "apps/testing",
   "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap.git",
   "srcTargetRevision": "",
   "labels": null,
