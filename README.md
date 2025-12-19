@@ -12,3 +12,11 @@ kubectl -n databases port-forward svc/pg-rw 5432:5432
 kubectl -n argocd port-forward svc/argocd-server 8080:80 --address 0.0.0.0
 
 https://github.com/cloudnative-pg/cloudnative-pg/issues/3756
+
+## TODO
+
+setup https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
+
+separate namespaces
+
+Sealed secrets guide
