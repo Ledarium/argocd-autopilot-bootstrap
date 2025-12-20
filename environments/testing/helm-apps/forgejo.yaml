@@ -30,7 +30,7 @@ spec:
           config:
             database:
               DB_TYPE: postgres
-              HOST: "pg-r.testing.svc.cluster.local:5432"
+              HOST: "pg-rw.testing.svc.cluster.local:5432"
               NAME: "forgejo"
               USER: "forgejo_user"
               SSL_MODE: disable
