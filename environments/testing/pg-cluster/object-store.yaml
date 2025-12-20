@@ -2,7 +2,7 @@ apiVersion: barmancloud.cnpg.io/v1
 kind: ObjectStore
 metadata:
   name: barman-s3-store
-  namespace: db
+  namespace: testing
 spec:
   retentionPolicy: "180d"
   configuration:
