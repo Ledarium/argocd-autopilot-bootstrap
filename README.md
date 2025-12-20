@@ -64,6 +64,11 @@ Commit .sealed.yaml and remove the other.
 
 If you need to reapply do `kubectl apply -f environments/testing/secrets/pg-cluster-user.sealed.yaml`
 
+### Alternatively (test)
+
+echo -n bar | kubectl create secret generic mysecret --dry-run=client --from-file=foo=/dev/stdin -o json \
+  | kubeseal > mysealedsecret.json
+
 ## Test postgres from pod
 
 `kubectl -n default run -it --rm psqltest --image=postgres:17 --   bash -lc 'getent hosts pg-r.testing.svc.cluster.local && echo OK'`
@@ -73,3 +78,10 @@ warning: couldn't attach to pod/psqltest, falling back to streaming logs: Intern
 10.43.26.219    pg-r.testing.svc.cluster.local
 OK
 pod "psqltest" deleted from default namespace
+
+## Un/reinstall ArgoCD
+
+kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+rm /var/lib/argocd-autopilot/bootstrapped
+if need to reinstall:
+systemctl restart argocd-autopilot-bootstrap
