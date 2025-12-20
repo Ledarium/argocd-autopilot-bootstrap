@@ -18,8 +18,6 @@ spec:
         image:
           tag: "10.0.3"
 
-        # You said "no storage, just local disk" -> typical k3s default is "local-path".
-        # Change storageClass if your cluster uses something else.
         persistence:
           enabled: true
           storageClass: local-path
@@ -27,7 +25,6 @@ spec:
 
         gitea:
           admin:
-            #existingSecret: forgejo-admin-secret
             passwordMode: initialOnlyRequireReset
 
           config:
@@ -38,8 +35,6 @@ spec:
               USER: "forgejo_user"
               SSL_MODE: disable
 
-          # Recommended way: keep PASSWD in a Secret and inject via env-to-ini.
-          # (Chart docs show this exact pattern.)
           additionalConfigFromEnvs:
             - name: FORGEJO__DATABASE__PASSWD
               valueFrom:

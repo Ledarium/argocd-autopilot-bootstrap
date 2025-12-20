@@ -36,3 +36,8 @@ spec:
       jqPathExpressions:
         - .webhooks[].clientConfig.caBundle
 
+  plugins:
+  - name: barman-cloud.cloudnative-pg.io
+    isWALArchiver: true
+    parameters:
+      barmanObjectName: barman-s3-store

@@ -1,3 +1,5 @@
+## Commands
+
 KUBECONFIG=~/.kube/k3s.yaml
 
 kubectl -n databases create secret generic pg-miniflux-user \
@@ -19,6 +21,8 @@ setup https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
 
 separate namespaces
 
+Pin all versions
+
 ## Get secret
 
 `kubectl get secret db-user-pass -o jsonpath='{.data.password}' | base64 --decode`
@@ -39,7 +43,7 @@ Example secret:
 apiVersion: bitnami.com/v1alpha1
 kind: Secret
 metadata:
-  name: pg-forgejo-user
+  name: <replace>
   namespace: testing
 type: Opaque
 stringData:

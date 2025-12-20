@@ -7,6 +7,11 @@ spec:
   instances: 1
   storage:
     size: 1Gi
+  plugins:
+   - name: barman-cloud.cloudnative-pg.io
+     isWALArchiver: true
+     parameters:
+       barmanObjectName: barman-s3-store
   managed:
     roles:
       - name: miniflux_user

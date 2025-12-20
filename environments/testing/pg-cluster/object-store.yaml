@@ -1,0 +1,19 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: barman-s3-store
+  namespace: db
+spec:
+  retentionPolicy: "180d"
+  configuration:
+    destinationPath: s3://postgres-streaming/barman-backup
+    endpointURL: https://s3.eu-central-003.backblazeb2.com
+    s3Credentials:
+      accessKeyId:
+        name: barman-s3-keys
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: barman-s3-keys
+        key: SECRET_ACCESS_KEY
+    wal:
+      compression: bzip2
