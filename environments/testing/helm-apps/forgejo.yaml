@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "20"
 spec:
-  project: default
+  project: testing
   source:
     repoURL: oci://code.forgejo.org/forgejo-helm/forgejo
     targetRevision: 15.0.3

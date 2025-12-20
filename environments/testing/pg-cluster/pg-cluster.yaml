@@ -10,7 +10,7 @@ spec:
   managed:
     roles:
       - name: miniflux_user
-        connectionLimit: 1
+        connectionLimit: 2
         ensure: present
         inherit: true
         login: true
@@ -18,7 +18,7 @@ spec:
           name: pg-miniflux-user
     roles:
       - name: forgejo_user
-        connectionLimit: 1
+        connectionLimit: 10
         ensure: present
         inherit: true
         login: true
