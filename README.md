@@ -85,3 +85,7 @@ kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/s
 rm /var/lib/argocd-autopilot/bootstrapped
 if need to reinstall:
 systemctl restart argocd-autopilot-bootstrap
+
+## Cache is missing
+
+kubectl rollout restart statefulset -n argocd argocd-application-controller
