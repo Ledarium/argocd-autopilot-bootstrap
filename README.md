@@ -29,16 +29,39 @@ kubeseal --fetch-cert \
   > sealed-secrets.pub.pem
 ```
 
-Create environments/testing/secrets/pg-miniflux-user.yaml DO NOT COMMIT
+Create environments/testing/pg-cluster/pg-forgejo-user.yaml DO NOT COMMIT
+Example secret:
+```
+apiVersion: bitnami.com/v1alpha1
+kind: Secret
+metadata:
+  name: pg-forgejo-user
+  namespace: testing
+type: Opaque
+stringData:
+  password: <redacted>
+  username: <redacted>
+```
+
 
 ```
 kubeseal \
   --cert sealed-secrets.pub.pem \
   --format yaml \
   --namespace testing \
-  --name pg-miniflux-user \ < environments/testing/secrets/pg-miniflux-user.yaml > environments/testing/secrets/pg-miniflux-user.sealed.yaml
+  --name pg-forgejo-user \ < environments/testing/pg-cluster/pg-forgejo-user.yaml > environments/testing/pg-cluster/pg-forgejo-user.sealed.yaml
 ```
 
 Commit .sealed.yaml and remove the other.
 
-If you need to reapply do `kubectl apply -f environments/testing/secrets/pg-miniflux-user.sealed.yaml`
+If you need to reapply do `kubectl apply -f environments/testing/secrets/pg-cluster-user.sealed.yaml`
+
+## Test postgres from pod
+
+`kubectl -n default run -it --rm psqltest --image=postgres:17 --   bash -lc 'getent hosts pg-r.testing.svc.cluster.local && echo OK'`
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+warning: couldn't attach to pod/psqltest, falling back to streaming logs: Internal error occurred: unable to upgrade connection: container psqltest not found in pod psqltest_default
+10.43.26.219    pg-r.testing.svc.cluster.local
+OK
+pod "psqltest" deleted from default namespace

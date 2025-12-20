@@ -7,10 +7,6 @@ spec:
   instances: 1
   storage:
     size: 1Gi
-  bootstrap:
-    initdb:
-      database: app
-      owner: app
   managed:
     roles:
       - name: miniflux_user
@@ -20,3 +16,11 @@ spec:
         login: true
         passwordSecret:
           name: pg-miniflux-user
+    roles:
+      - name: forgejo_user
+        connectionLimit: 1
+        ensure: present
+        inherit: true
+        login: true
+        passwordSecret:
+          name: pg-forgejo-user
