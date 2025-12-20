@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testing-forgejo
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+spec:
+  project: default
+  source:
+    repoURL: oci://code.forgejo.org/forgejo-helm/forgejo
+    targetRevision: 15.0.3
+    path: .
+    helm:
+      releaseName: forgejo
+      valuesObject:
+        # Pin Forgejo APP version (image tag) to major v10 (last patch is 10.0.3)
+        image:
+          tag: "10.0.3"
+
+        # You said "no storage, just local disk" -> typical k3s default is "local-path".
+        # Change storageClass if your cluster uses something else.
+        persistence:
+          enabled: true
+          storageClass: local-path
+          size: 5Gi
+
+        gitea:
+          admin:
+            #existingSecret: forgejo-admin-secret
+            passwordMode: initialOnlyRequireReset
+
+          config:
+            database:
+              DB_TYPE: postgres
+              HOST: "CHANGE_ME_POSTGRES_HOSTNAME:5432"
+              NAME: "forgejo"
+              USER: "forgejo_user"
+              SSL_MODE: disable
+
+          # Recommended way: keep PASSWD in a Secret and inject via env-to-ini.
+          # (Chart docs show this exact pattern.)
+          additionalConfigFromEnvs:
+            - name: FORGEJO__DATABASE__PASSWD
+              valueFrom:
+                secretKeyRef:
+                  name: pg-forgejo-user
+                  key: password
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: testing
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
