@@ -19,6 +19,10 @@ setup https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
 
 separate namespaces
 
+## Get secret
+
+`kubectl get secret db-user-pass -o jsonpath='{.data.password}' | base64 --decode`
+
 ## Sealing secrets
 
 Download cluster private key
