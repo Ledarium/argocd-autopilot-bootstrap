@@ -1,0 +1,13 @@
+{
+  "appName": "barman-plugin",
+  "userGivenName": "barman-plugin",
+  "destNamespace": "argocd",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "environments/testing/barman-plugin",
+  "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
