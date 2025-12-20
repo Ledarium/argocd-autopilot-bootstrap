@@ -1,7 +1,7 @@
 {
   "appName": "barman-plugin",
   "userGivenName": "barman-plugin",
-  "destNamespace": "cnpg-system",
+  "destNamespace": "argocd",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "environments/testing/barman-plugin",
   "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap",
