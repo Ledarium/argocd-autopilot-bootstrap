@@ -40,3 +40,5 @@ kubeseal \
 ```
 
 Commit .sealed.yaml and remove the other.
+
+If you need to reapply do `kubectl apply -f environments/testing/secrets/pg-miniflux-user.sealed.yaml`

@@ -14,7 +14,9 @@ spec:
   managed:
     roles:
       - name: miniflux_user
+        connectionLimit: 1
         ensure: present
+        inherit: true
         login: true
         passwordSecret:
           name: pg-miniflux-user
