@@ -35,6 +35,3 @@ spec:
       name: cnpg-validating-webhook-configuration
       jqPathExpressions:
         - .webhooks[].clientConfig.caBundle
-  method: plugin
-  pluginConfiguration:
-    name: barman-cloud.cloudnative-pg.io

@@ -7,6 +7,9 @@ spec:
   instances: 1
   storage:
     size: 1Gi
+  method: plugin
+  pluginConfiguration:
+    name: barman-cloud.cloudnative-pg.io
   plugins:
    - name: barman-cloud.cloudnative-pg.io
      isWALArchiver: true
