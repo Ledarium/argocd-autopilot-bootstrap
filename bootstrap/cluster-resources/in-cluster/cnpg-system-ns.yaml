@@ -3,9 +3,7 @@ kind: Namespace
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
-  labels:
-    kubernetes.io/metadata.name: cnpg-system
-  name: cnpg-system
-spec:
-  finalizers:
-    - kubernetes
+  creationTimestamp: null
+  name: cngpg-system
+spec: {}
+status: {}
