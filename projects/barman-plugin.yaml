@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/Ledarium/argocd-autopilot-bootstrap
     targetRevision: HEAD
-    path: projects/barman-plugin
+    path: projects/barman-plugin/barman-plugin
   destination:
     server: https://kubernetes.default.svc
     namespace: cnpg-system
