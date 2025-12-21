@@ -14,9 +14,8 @@ spec:
     helm:
       releaseName: forgejo
       valuesObject:
-        # Pin Forgejo APP version (image tag) to major v10 (last patch is 10.0.3)
         image:
-          tag: "10.0.3"
+          tag: "13"
 
         persistence:
           enabled: true
