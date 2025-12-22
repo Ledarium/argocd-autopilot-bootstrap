@@ -1,9 +1,9 @@
 {
-  "appName": "barman-plugin",
-  "userGivenName": "barman-plugin",
+  "appName": "cnpg",
+  "userGivenName": "cnpg",
   "destNamespace": "cnpg-system",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "environments/testing/barman-plugin",
+  "srcPath": "environments/testing/cnpg",
   "srcRepoURL": "https://github.com/Ledarium/argocd-autopilot-bootstrap",
   "srcTargetRevision": "",
   "labels": null,
